@@ -9,7 +9,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 14
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -38,8 +38,8 @@ publish {
     userOrg = 'openpix'//bintray.com用户名
     groupId = 'com.openpix'//jcenter上的路径
     artifactId = 'optoolbar'//项目名称
-    publishVersion = '1.0.0'//版本号
-    desc = 'first version issue'//描述，不重要
+    publishVersion = '1.0.1'//版本号
+    desc = 'support minSDK 14'//描述，不重要
     website = 'https://github.com/openpix/optoolbar'//网站，最好有，不重要
 }
 
