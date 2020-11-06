@@ -22,10 +22,10 @@ import androidx.appcompat.widget.Toolbar
  * 作者姓名 修改时间 版本号 描述
 </desc></version></time></author> */
 class OPToolbar : Toolbar {
-    private var tvTitle: TextView? = null
-    private var mImageButtonLeft: ImageButton? = null
-    private var mImageButtonRight: ImageButton? = null
-    private var mRightTextView: TextView? = null
+    var tvTitle: TextView? = null
+    var mImageButtonLeft: ImageButton? = null
+    var mImageButtonRight: ImageButton? = null
+    var mRightTextView: TextView? = null
     var leftButtonClickListener:((View)->Unit)? = null
     var rightButtonClickListener:((View)->Unit)? = null
 

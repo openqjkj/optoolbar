@@ -15,3 +15,9 @@ first version issue
 2020-10-2
 
 support minSDK 14
+
+## 1.0.1
+
+2020-11-6
+
+open inner view
