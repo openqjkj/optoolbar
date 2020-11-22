@@ -21,3 +21,7 @@ support minSDK 14
 2020-11-6
 
 open inner view
+
+2020-11-22
+
+modify android library version
