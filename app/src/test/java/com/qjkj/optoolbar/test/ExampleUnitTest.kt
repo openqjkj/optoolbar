@@ -1,4 +1,4 @@
-package com.openpix.optoolbar.test
+package com.qjkj.optoolbar.test
 
 import org.junit.Test
 

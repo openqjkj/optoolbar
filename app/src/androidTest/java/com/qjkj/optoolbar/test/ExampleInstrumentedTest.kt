@@ -1,4 +1,4 @@
-package com.openpix.optoolbar
+package com.qjkj.optoolbar.test
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.openpix.optoolbar.test", appContext.packageName)
+        assertEquals("com.qjkj.optoolbar.test", appContext.packageName)
     }
 }

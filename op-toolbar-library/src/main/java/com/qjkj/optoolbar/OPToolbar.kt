@@ -1,4 +1,4 @@
-package com.openpix.optoolbar
+package com.qjkj.optoolbar
 
 import android.content.Context
 import android.text.TextUtils
@@ -12,7 +12,7 @@ import androidx.annotation.StringRes
 import androidx.appcompat.widget.Toolbar
 
 /**
- * Copyright (C), 2020-2020, openpix
+ * Copyright (C), 2020-2020, openqjkj
  * Author: pix
  * Date: 8/6/20
  * Version: 1.0
