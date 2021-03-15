@@ -1,15 +1,24 @@
 package com.qjkj.optoolbar
 
 import android.content.Context
+import android.content.res.TypedArray
+import android.graphics.Color
+import android.graphics.Typeface
+import android.graphics.drawable.Drawable
+import android.os.Build
 import android.text.TextUtils
 import android.util.AttributeSet
+import android.util.Log
+import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.annotation.DrawableRes
+import androidx.annotation.RequiresApi
 import androidx.annotation.StringRes
 import androidx.appcompat.widget.Toolbar
+import com.qjkj.optoolbar.ext.sp
 
 /**
  * Copyright (C), 2020-2020, openqjkj
@@ -22,6 +31,7 @@ import androidx.appcompat.widget.Toolbar
  * 作者姓名 修改时间 版本号 描述
 </desc></version></time></author> */
 class OPToolbar : Toolbar {
+    val TAG = OPToolbar::class.java.simpleName
     var tvTitle: TextView? = null
     var mImageButtonLeft: ImageButton? = null
     var mImageButtonRight: ImageButton? = null
@@ -30,8 +40,41 @@ class OPToolbar : Toolbar {
     var rightButtonClickListener:((View)->Unit)? = null
 
     constructor(context: Context) : super(context) {}
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {}
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {}
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        var typedArray = context.obtainStyledAttributes(attrs, R.styleable.OPToolbar)
+        var titleText = typedArray.getString(R.styleable.OPToolbar_title_text)
+        var titleTextColor = typedArray.getColor(R.styleable.OPToolbar_title_text_color, Color.BLACK)
+        var titleTextSize = typedArray.getDimensionPixelSize(R.styleable.OPToolbar_title_text_size, 12.sp)
+        var titleBackground = typedArray.getDrawable(R.styleable.OPToolbar_title_background)
+        var titleTextBold = typedArray.getBoolean(R.styleable.OPToolbar_title_text_bold, false)
+        typedArray.recycle(); //注意回收
+//        Log.d(TAG, "constructor(2), titleText: $titleText")
+//        Log.d(TAG, "constructor(2), titleTextColor: $titleTextColor")
+//        Log.d(TAG, "constructor(2), titleTextSize: $titleTextSize")
+//        Log.d(TAG, "constructor(2), titleBackground: $titleBackground")
+        initTitle(titleText, titleTextSize, titleTextColor, titleBackground, titleTextBold)
+    }
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    }
+
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
+    private fun initTitle(title: String?, textSize: Int, textColor: Int, background: Drawable?, bold: Boolean) {
+        if(TextUtils.isEmpty(title)) {
+            return
+        }
+        if (null == tvTitle) {
+            tvTitle = addMiddleTitle(context, this)
+        }
+        tvTitle?.text = title
+        tvTitle?.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize.toFloat())
+        tvTitle?.setTextColor(textColor)
+        tvTitle?.background = background
+        if(bold) {
+            tvTitle?.typeface = Typeface.defaultFromStyle(Typeface.BOLD);
+            tvTitle?.paint?.isFakeBoldText = true
+        }
+    }
 
     override fun setTitle(@StringRes resId: Int) {
         if (null == tvTitle) {

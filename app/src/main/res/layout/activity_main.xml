@@ -12,6 +12,11 @@
         android:layout_height="50dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:title_text="OPToolbar"
+        app:title_text_size="20sp"
+        app:title_text_color="#F00"
+        app:title_background="#00F"
+        app:title_text_bold="true"
         />
     <View
         android:layout_width="match_parent"

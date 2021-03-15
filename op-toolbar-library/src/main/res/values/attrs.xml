@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="OPToolbar">
+        <attr name="title_background" format="reference|color" />
+        <attr name="title_text" format="reference|string" />
+        <attr name="title_text_color" format="reference|color" />
+        <attr name="title_text_size" format="reference|dimension" />
+        <attr name="title_text_bold" format="boolean" />
+    </declare-styleable>
+</resources>
